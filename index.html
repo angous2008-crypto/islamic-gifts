@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>باقة الهدايا الإسلامية المميزة</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+    .hero { text-align: center; padding: 48px 16px 32px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500; color: #666;
+      background: #f0f0f0; padding: 6px 16px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 32px; font-weight: 600; line-height: 1.2; margin: 0 0 10px; }
+    .hero-sub { font-size: 17px; color: #555; margin: 0 0 24px; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1a1a1a; color: #fff; border: none;
+      padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 500;
+      cursor: pointer; transition: opacity 0.2s; text-decoration: none;
+    }
+    .hero-cta:hover { opacity: 0.85; }
+
+    .section-title { font-size: 22px; font-weight: 600; margin: 40px 0 16px; text-align: center; }
+    .section-sub { font-size: 15px; color: #666; text-align: center; margin: -10px 0 24px; }
+
+    .products {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    }
+    @media (min-width: 560px) {
+      .products { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    }
+    .product-card {
+      background: #fff; border: 1px solid #e5e5e5; border-radius: 14px;
+      padding: 14px; display: flex; flex-direction: column; align-items: center;
+      text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+      text-decoration: none; color: inherit;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .product-visual {
+      width: 100%; aspect-ratio: 1; border-radius: 12px; margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .product-visual svg { width: 56px; height: 56px; }
+    .product-num {
+      position: absolute; top: 8px; right: 8px;
+      font-size: 11px; font-weight: 600; color: #fff;
+      background: rgba(0,0,0,0.4); padding: 3px 10px; border-radius: 6px;
+    }
+    .product-name { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+    .product-price { font-size: 20px; font-weight: 600; margin: 0 0 12px; }
+    .product-price span { font-size: 13px; color: #888; font-weight: 400; }
+    .product-btn {
+      width: 100%; padding: 10px 0; border: 1px solid #ddd; border-radius: 8px;
+      background: transparent; color: #1a1a1a; font-size: 14px; font-weight: 500;
+      cursor: pointer; transition: background 0.2s; text-decoration: none; display: inline-block;
+    }
+    .product-btn:hover { background: #f5f5f5; }
+
+    .v1 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .v2 { background: linear-gradient(135deg, #3d2b1f 0%, #5c4033 100%); }
+    .v3 { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); }
+    .v4 { background: linear-gradient(135deg, #757575 0%, #9e9e9e 100%); }
+    .v5 { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
+    .v6 { background: linear-gradient(135deg, #b71c1c 0%, #c62828 100%); }
+
+    .features {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 8px;
+    }
+    @media (min-width: 560px) {
+      .features { grid-template-columns: repeat(4, 1fr); }
+    }
+    .feature {
+      background: #fff; text-align: center; padding: 20px 10px;
+      border: 1px solid #e5e5e5; border-radius: 12px;
+    }
+    .feature-icon {
+      width: 40px; height: 40px; margin: 0 auto 10px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 10px; background: #f5f5f5;
+    }
+    .feature-icon svg { width: 22px; height: 22px; }
+    .feature-title { font-size: 14px; font-weight: 600; margin: 0 0 2px; }
+    .feature-desc { font-size: 13px; color: #888; margin: 0; }
+
+    .contact {
+      margin: 40px 0 20px; padding: 28px;
+      background: #fff; border: 1px solid #e5e5e5; border-radius: 14px; text-align: center;
+    }
+    .contact h3 { font-size: 20px; font-weight: 600; margin: 0 0 8px; }
+    .contact p { font-size: 15px; color: #555; margin: 0 0 20px; }
+    .contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 10px; font-size: 15px; font-weight: 500;
+      cursor: pointer; border: none; transition: opacity 0.2s; text-decoration: none;
+    }
+    .contact-btn:hover { opacity: 0.88; }
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-call { background: #1a1a1a; color: #fff; }
+
+    .footer-note {
+      text-align: center; font-size: 13px; color: #999;
+      padding: 20px 16px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        هدايا إسلامية فاخرة
+      </div>
+      <h1>باقة الهدايا الإسلامية المميزة</h1>
+      <p class="hero-sub">أجمل الهدايا الإسلامية بأناقة وتغليف مميز — مناسبة لكل المناسبات</p>
+      <a href="#products" class="hero-cta">
+        تصفح المنتجات
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="section-title" id="products">مجموعتنا</div>
+    <div class="section-sub">السعر حبة وحدة فقط — جودة عالية بتغليف راقٍ</div>
+
+    <div class="products">
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A%D8%A9%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%201)" class="product-card">
+        <div class="product-visual v1">
+          <span class="product-num">1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div class="product-name">الباقة الذهبية</div>
+        <div class="product-price">3,500 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B3%D9%84%D8%A9%20%D8%A7%D9%84%D9%81%D8%A7%D8%AE%D8%B1%D8%A9%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%202)" class="product-card">
+        <div class="product-visual v2">
+          <span class="product-num">2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="product-name">باقة السلة الفاخرة</div>
+        <div class="product-price">3,400 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%82%D9%84%D8%A8%20%D8%A7%D9%84%D8%A3%D8%B2%D8%B1%D9%82%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%203)" class="product-card">
+        <div class="product-visual v3">
+          <span class="product-num">3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="1.5"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <div class="product-name">باقة القلب الأزرق</div>
+        <div class="product-price">3,100 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%81%D8%B6%D8%A9%20%D8%A7%D9%84%D8%B1%D8%A7%D9%82%D9%8A%D8%A9%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%204)" class="product-card">
+        <div class="product-visual v4">
+          <span class="product-num">4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+        </div>
+        <div class="product-name">باقة الفضة الراقية</div>
+        <div class="product-price">2,300 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%88%D8%B1%D8%AF%D9%8A%20%D8%A7%D9%84%D9%86%D8%A7%D8%B9%D9%85%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%205)" class="product-card">
+        <div class="product-visual v5">
+          <span class="product-num">5</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M12 6v.01M8 10h8M8 14h8M8 18h5"/></svg>
+        </div>
+        <div class="product-name">باقة الوردي الناعم</div>
+        <div class="product-price">1,600 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+
+      <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D9%85%D8%AE%D9%85%D9%84%20%D8%A7%D9%84%D8%A3%D8%AD%D9%85%D8%B1%20(%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%206)" class="product-card">
+        <div class="product-visual v6">
+          <span class="product-num">6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffccbc" stroke-width="1.5"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 6l4-3 4 3"/></svg>
+        </div>
+        <div class="product-name">باقة المخمل الأحمر</div>
+        <div class="product-price">1,500 <span>د.ك</span></div>
+        <span class="product-btn">اطلب الآن</span>
+      </a>
+    </div>
+
+    <div class="section-title">لماذا تختارنا؟</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="feature-title">جودة عالية</div>
+        <div class="feature-desc">مواد فاخرة</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="feature-title">توصيل سريع</div>
+        <div class="feature-desc">لجميع المناطق</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div class="feature-title">تغليف مميز</div>
+        <div class="feature-desc">جاهز للإهداء</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="feature-title">ضمان الجودة</div>
+        <div class="feature-desc">ثقة ومصداقية</div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <h3>اطلب هديتك الآن</h3>
+      <p>تواصل معنا مباشرة عبر واتساب أو اتصل بنا للطلب والاستفسار</p>
+      <div class="contact-btns">
+        <a href="https://wa.me/966549192767?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA" class="contact-btn btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          واتساب
+        </a>
+        <a href="tel:+966549192767" class="contact-btn btn-call">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          اتصل بنا
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-note">باقة الهدايا الإسلامية المميزة — السعر حبة وحدة فقط</div>
+  </div>
+</body>
+</html>
